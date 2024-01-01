@@ -1,4 +1,4 @@
-# Opengl Breakout Game
+# Opengl Breakout Game - Learn from LearnOpenGL
 
 ## Used Libraries, Platform Ubuntu 20.04
 * Installed in linux
@@ -11,16 +11,54 @@
 6. freetype - Text Render library
 7. irrKlang - Open Source Sound library
 
-## Build
+## Build && Run
 ```
+Step into dir where CMakeists.txt located and code in: 
+
 cmake -B build && cmake --build build
 ./Breakout 
+```
+
+If success, terminal shows like:
+```bash
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/szt/projects/2d_BreakOut/build
+Scanning dependencies of target Breakout
+[  7%] Building CXX object CMakeFiles/Breakout.dir/src/BallObject.cpp.o
+[ 15%] Building CXX object CMakeFiles/Breakout.dir/src/Game.cpp.o
+[ 23%] Building CXX object CMakeFiles/Breakout.dir/src/GameLevel.cpp.o
+[ 30%] Building CXX object CMakeFiles/Breakout.dir/src/GameObject.cpp.o
+[ 38%] Building CXX object CMakeFiles/Breakout.dir/src/Particle.cpp.o
+[ 46%] Building CXX object CMakeFiles/Breakout.dir/src/PostProcess.cpp.o
+[ 53%] Building CXX object CMakeFiles/Breakout.dir/src/ResourceManager.cpp.o
+[ 61%] Building CXX object CMakeFiles/Breakout.dir/src/Shader.cpp.o
+[ 69%] Building CXX object CMakeFiles/Breakout.dir/src/SpriteRenderer.cpp.o
+[ 76%] Building CXX object CMakeFiles/Breakout.dir/src/Texture2d.cpp.o
+[ 84%] Building CXX object CMakeFiles/Breakout.dir/src/TextureRender.cpp.o
+[ 92%] Building CXX object CMakeFiles/Breakout.dir/src/main.cpp.o
+[100%] Linking CXX executable ../Breakout
+[100%] Built target Breakout
 ```
 
 ## Cmake Link Libs
 1. Include header or source director
 2. Link libs to the executable target
-3. In linux, lib is .so and .a
+3. In linux, lib is end with .so and .a
 4. In windows, lib is .lib and .dll
 5. In mac, lib is ???
 
@@ -84,9 +122,13 @@ SoundEngine->play2D("your_music_file.mp3", true); // loop
 SoundEngine->play2D("your_music_file.mp3", false); // once
 ```
 
-## Text Rendering - freetype
+## Text Rendering - freetype library
 
 
 ## Tips
 1. Texture direction is flipped. Can revise fs shader program to rectify the texture direction
 2. Libs (ikpFlac.so and ikpMP3.so) need to be placed in the same folder with generated Breakout file
+3. If cannot see anything in opengl window, check:
+    * Projection, View matrix is ignore or misused.
+    * glEnable(xxx) funciton may prevent something shown up.
+    * Use glGetError() to detect error hided in codes.
