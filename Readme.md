@@ -62,6 +62,11 @@ Scanning dependencies of target Breakout
 4. In windows, lib is .lib and .dll
 5. In mac, lib is ???
 
+## Recorded notes
+![recorded](./resources/note_imgs/Page1.jpg)
+
+![recorded](./resources/note_imgs/Page2.jpg)
+
 ## Collition
 
 1. Axis-aligned bounding box (AABB) rectangle
